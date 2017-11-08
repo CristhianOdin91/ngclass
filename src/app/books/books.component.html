@@ -1,0 +1,31 @@
+<h1>Listado de Libros</h1>
+
+<div *ngIf="books" >
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Autor</td>
+        <td>Número de páginas</td>
+        <td>Acciones</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books" >
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.pages}}</td>
+        <td><button (click)="destroyBook(book.id)">Borrar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <label for="">
+      Nombre del libro
+      <input type="text" [(ngModel)]="books[0].name">
+    </label>
+  </div>
+</div>
